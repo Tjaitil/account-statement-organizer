@@ -1,0 +1,8 @@
+[
+    {
+        "patterns": ["kolumbus"],
+        "category": "transport",
+        "name": "KOLUMBUS",
+        "priority": 1
+    }
+]

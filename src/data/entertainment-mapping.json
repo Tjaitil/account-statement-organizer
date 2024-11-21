@@ -1,0 +1,8 @@
+[
+    {
+        "patterns": ["ticketmaster"],
+        "category": "entertainment",
+        "name": "Ticketmaster",
+        "priority": 1
+    }
+]

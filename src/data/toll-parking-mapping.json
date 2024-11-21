@@ -1,0 +1,8 @@
+[
+    {
+        "patterns": ["easyPark"],
+        "category": "tolls & parking",
+        "name": "EasyPark",
+        "priority": 1
+    }
+]

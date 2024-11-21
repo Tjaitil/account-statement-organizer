@@ -1,0 +1,8 @@
+[
+    {
+        "patterns": ["lånekassen"],
+        "category": "loan",
+        "name": "Lånekassen",
+        "priority": 1
+    }
+]
