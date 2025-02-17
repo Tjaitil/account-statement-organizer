@@ -45,7 +45,6 @@ export type TransactionGroupName =
     | "loan"
     | "municipality costs";
 
-
 export interface TransactionCategories {
     living: TransactionGroup;
     savings: TransactionGroup;
@@ -63,18 +62,37 @@ export interface OrganizedStatement {
     balance: number;
 }
 
-export type StatementFormat<K extends string> = {
+export type StatementFormat<K extends EntryTransactionFormat> = {
     id: number;
-    columns: EntryTransactionFormat<K>[];
+    columns: K[];
 };
 export type EntryTransactionFormat<T extends string = string> = Record<T, string>;
 
-export type EntryFormatOne = StatementFormat<"Dato" | "Type" | "Beløp" | "Beskrivelse">;
-export type EntryFormatUnknown = StatementFormat<"">;
-export type EntryFormat = EntryFormatOne | EntryFormatUnknown;
+export type EntryTransactionFormatOne = EntryTransactionFormat<"Dato" | "Type" | "Beløp" | "Beskrivelse">;
+export type EntryFormatOne = StatementFormat<EntryTransactionFormatOne>;
+
+export type EntryTransactionFormatTwo = EntryTransactionFormat<"Utført dato" | "Bokført dato" | "Rentedato" | "Beskrivelse" | "Type" | "Undertype" | "Fra konto" | "Avsender" | "Til konto" | "Mottakernavn" | "Beløp inn" | "Beløp ut" | "Valuta" | "Status" | "Melding/KID/Fakt.nr">;
+export type EntryFormatTwo = StatementFormat<EntryTransactionFormatTwo>;
+export type StatementFormatUnknown = EntryTransactionFormat<"">;
+export type EntryFormatUnknown = StatementFormat<EntryTransactionFormat<"">>;
+
+export type StatementFormats = EntryFormatOne | EntryFormatTwo | EntryFormatUnknown; 
+export type EntryFormat = EntryFormatOne | EntryFormatTwo | EntryFormatUnknown;
 
 export function isEntryFormatOne(format: EntryFormat["columns"]): format is EntryFormatOne["columns"] {
     return Array.isArray(format) && format.length > 0 && "Beløp" in format[0];
+}
+
+export function isEntryFormatTwo(format: EntryFormat["columns"]): format is EntryFormatTwo["columns"] {
+    return Array.isArray(format) && format.length > 0 && "Utført dato" in format[0];
+}
+
+export function isTransactionFormatOne(format: EntryTransactionFormatOne | EntryTransactionFormatTwo | StatementFormatUnknown): format is EntryTransactionFormatOne {
+    return "Dato" in format;
+}
+
+export function isTransactionFormatTwo(format: EntryTransactionFormatOne | EntryTransactionFormatTwo | StatementFormatUnknown): format is EntryTransactionFormatTwo {
+    return "Utført dato" in format;
 }
 
 export type UncategorizedTransaction = Omit<Transaction, "category" | "name">;
