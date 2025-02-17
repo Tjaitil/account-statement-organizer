@@ -2,7 +2,7 @@
     <section class="w-screen pt-12 flex place-content-center">
         <PrimeCard class="w-2/3 max-w-4xl">
             <template #content>
-                <div class="place-items-center">
+                <div>
                     <transition mode="out-in" name="fade">
                         <UploadStatementForm @submit="(val) => submit(val)" v-if="step === 1" />
                         <StatementOrganizer
