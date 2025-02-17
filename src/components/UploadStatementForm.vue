@@ -1,6 +1,6 @@
 <template>
     <div class="container flex flex-col gap-4">
-        <h3 class="text-3xl">{{ t('Start by uploading a file(s)') }}</h3>
+        <h3 class="text-3xl">{{ t("Start by uploading a file(s)") }}</h3>
         <form class="flex flex-col gap-4" @submit.prevent="submit()">
             <div class="flex flex-row justify-center gap-2">
                 <FileUpload
@@ -14,7 +14,7 @@
                     :multiple="true"
                 ></FileUpload>
                 <PrimeButton
-                    :label="t('Cancel')" 
+                    :label="t('Cancel')"
                     severity="danger"
                     variant="outlined"
                     :disabled="files.length === 0"
@@ -31,13 +31,13 @@
                             </div>
                         </template>
                         <p v-else>
-                            <i>{{ t('No file(s) selected') }}</i>
+                            <i>{{ t("No file(s) selected") }}</i>
                         </p>
                     </div>
                 </template>
             </PrimeCard>
-            <p v-if="hasError">{{ t('Unfortunately an error has occured') }}</p>
-            <PrimeButton type="submit" :disabled="files.length === 0">{{t('Organize')}}</PrimeButton>
+            <p v-if="hasError">{{ t("Unfortunately an error has occured") }}</p>
+            <PrimeButton type="submit" :disabled="files.length === 0">{{ t("Organize") }}</PrimeButton>
         </form>
     </div>
 </template>
@@ -48,7 +48,12 @@ import { Icon } from "@iconify/vue";
 import FileUpload, { FileUploadSelectEvent } from "primevue/fileupload";
 import PrimeButton from "primevue/button";
 import { processFile } from "../composables/ProcessFile";
-import { EntryFormat, isEntryFormatOne, UncategorizedTransaction } from "../types/Statements";
+import {
+    EntryFormat,
+    isTransactionFormatOne,
+    isTransactionFormatTwo,
+    UncategorizedTransaction,
+} from "../types/Statements";
 import { Card as PrimeCard } from "primevue";
 import { useI18n } from "vue-i18n";
 
@@ -83,7 +88,6 @@ const submit = async () => {
 
         emit("submit", mappedResult);
     } catch (e) {
-        console.log(e);
         hasError.value = true;
     }
 };
@@ -95,8 +99,9 @@ const emit = defineEmits<{
 const mapFromStatementFormat = () => {
     const mappedTransaction: UncategorizedTransaction[] = [];
     const columns = initialColumns.value;
-    if (isEntryFormatOne(columns)) {
-        columns.forEach((statement, index) => {
+
+    columns.forEach((statement, index) => {
+        if (isTransactionFormatOne(statement)) {
             let amount = parseInt(statement.Beløp);
             mappedTransaction.push({
                 id: index,
@@ -106,8 +111,22 @@ const mapFromStatementFormat = () => {
                 type: statement.Type,
                 isIncomming: amount > 0 ? true : false,
             });
-        });
-    }
+        } else if(isTransactionFormatTwo(statement)) {
+            let amount = parseInt(statement["Beløp inn"] || statement["Beløp ut"]);
+            let isIncomming = amount > 0 ? true : false;
+
+            if (statement.Beskrivelse != null && statement.Beskrivelse.length > 0) {
+                mappedTransaction.push({
+                    id: index,
+                    date: statement["Bokført dato"],
+                    description: statement.Beskrivelse,
+                    amount: amount,
+                    type: statement.Type,
+                    isIncomming,
+                });
+            }    
+        }
+    });
 
     return mappedTransaction;
 };
