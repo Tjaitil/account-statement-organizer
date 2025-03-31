@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.2.0 (2025-03-31)
+
+
+### Features
+
+* add demo mode ([#2](https://github.com/Tjaitil/account-statement-organizer/issues/2)) ([4874db1](https://github.com/Tjaitil/account-statement-organizer/commit/4874db198d0afff52a1d57ea0e5a110939ac5cc3))
+
+
 ## 0.1.1 (2025-03-31)
 
 
