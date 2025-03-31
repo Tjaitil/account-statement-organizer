@@ -39,6 +39,9 @@
             <p v-if="hasError">{{ t("Unfortunately an error has occured") }}</p>
             <PrimeButton type="submit" :disabled="files.length === 0">{{ t("Organize") }}</PrimeButton>
         </form>
+        <PrimeButton @click="invokeDemo" type="submit" class="self-end" severity="info" variant="outlined">{{
+            t("Use demo file")
+        }}</PrimeButton>
     </div>
 </template>
 
@@ -54,6 +57,7 @@ import {
     isTransactionFormatTwo,
     UncategorizedTransaction,
 } from "../types/Statements";
+import demoFile from "../assets/demo-file.csv?url";
 import { Card as PrimeCard } from "primevue";
 import { useI18n } from "vue-i18n";
 
@@ -70,6 +74,23 @@ const removeFiles = () => {
     files.value = [];
 };
 
+const invokeDemo = async () => {
+
+    const response = await fetch(demoFile);
+
+    if(!response.ok) {
+        return;
+    }
+
+    const blob = await response.blob();
+    const file = new File([blob], "demo-file.csv", {
+        type: "text/csv",
+    });
+
+    files.value.push(file);
+    submit();
+};
+
 const submit = async () => {
     try {
         hasError.value = false;
@@ -80,6 +101,7 @@ const submit = async () => {
         let results: EntryFormat["columns"] = [];
         for (const element of files.value) {
             let result = await processFile(element);
+            console.log(result);
             results = [...results, ...result] as EntryFormat["columns"];
             initialColumns.value = results;
         }
@@ -111,7 +133,7 @@ const mapFromStatementFormat = () => {
                 type: statement.Type,
                 isIncomming: amount > 0 ? true : false,
             });
-        } else if(isTransactionFormatTwo(statement)) {
+        } else if (isTransactionFormatTwo(statement)) {
             let amount = parseInt(statement["Beløp inn"] || statement["Beløp ut"]);
             let isIncomming = amount > 0 ? true : false;
 
@@ -124,7 +146,7 @@ const mapFromStatementFormat = () => {
                     type: statement.Type,
                     isIncomming,
                 });
-            }    
+            }
         }
     });
 
