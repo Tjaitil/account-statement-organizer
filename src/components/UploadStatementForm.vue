@@ -1,9 +1,10 @@
 <template>
     <div class="container flex flex-col gap-4">
         <h3 class="text-3xl">{{ t("Start by uploading a file(s)") }}</h3>
-        <form class="flex flex-col gap-4" @submit.prevent="submit()">
+        <form class="flex flex-col gap-4" @submit.prevent="submit()" role="form">
             <div class="flex flex-row justify-center gap-2">
                 <FileUpload
+                    name="file"
                     mode="basic"
                     @select="addFiles"
                     customUpload
@@ -51,15 +52,11 @@ import { Icon } from "@iconify/vue";
 import FileUpload, { FileUploadSelectEvent } from "primevue/fileupload";
 import PrimeButton from "primevue/button";
 import { processFile } from "../composables/ProcessFile";
-import {
-    EntryFormat,
-    isTransactionFormatOne,
-    isTransactionFormatTwo,
-    UncategorizedTransaction,
-} from "../types/Statements";
+import { EntryFormat, UncategorizedTransaction } from "../types/Statements";
 import demoFile from "../assets/demo-file.csv?url";
 import { Card as PrimeCard } from "primevue";
 import { useI18n } from "vue-i18n";
+import { mapFromStatementFormat } from "../utils/mapFileToStatementFormat";
 
 const files = ref<File[]>([]);
 const initialColumns = ref<EntryFormat["columns"]>([]);
@@ -75,10 +72,9 @@ const removeFiles = () => {
 };
 
 const invokeDemo = async () => {
-
     const response = await fetch(demoFile);
 
-    if(!response.ok) {
+    if (!response.ok) {
         return;
     }
 
@@ -101,13 +97,13 @@ const submit = async () => {
         let results: EntryFormat["columns"] = [];
         for (const element of files.value) {
             let result = await processFile(element);
-            console.log(result);
             results = [...results, ...result] as EntryFormat["columns"];
             initialColumns.value = results;
         }
 
-        const mappedResult = mapFromStatementFormat();
+        console.log("results", initialColumns.value);
 
+        const mappedResult = mapFromStatementFormat(initialColumns.value);
         emit("submit", mappedResult);
     } catch (e) {
         hasError.value = true;
@@ -117,39 +113,4 @@ const submit = async () => {
 const emit = defineEmits<{
     (event: "submit", data: UncategorizedTransaction[]): void;
 }>();
-
-const mapFromStatementFormat = () => {
-    const mappedTransaction: UncategorizedTransaction[] = [];
-    const columns = initialColumns.value;
-
-    columns.forEach((statement, index) => {
-        if (isTransactionFormatOne(statement)) {
-            let amount = parseInt(statement.Beløp);
-            mappedTransaction.push({
-                id: index,
-                date: statement.Dato,
-                description: statement.Beskrivelse,
-                amount: amount,
-                type: statement.Type,
-                isIncomming: amount > 0 ? true : false,
-            });
-        } else if (isTransactionFormatTwo(statement)) {
-            let amount = parseInt(statement["Beløp inn"] || statement["Beløp ut"]);
-            let isIncomming = amount > 0 ? true : false;
-
-            if (statement.Beskrivelse != null && statement.Beskrivelse.length > 0) {
-                mappedTransaction.push({
-                    id: index,
-                    date: statement["Bokført dato"],
-                    description: statement.Beskrivelse,
-                    amount: amount,
-                    type: statement.Type,
-                    isIncomming,
-                });
-            }
-        }
-    });
-
-    return mappedTransaction;
-};
 </script>
