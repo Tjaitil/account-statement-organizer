@@ -6,6 +6,7 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   test: {
     environment: 'jsdom',
+    exclude: ['./tests', 'node_modules/**'],
   },
   base: '/account-statement-organizer/',
   plugins: [vue()],
