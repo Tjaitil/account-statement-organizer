@@ -1,32 +1,32 @@
 [
-    {
-        "patterns": ["vitus"],
-        "category": "health & wellbeing",
-        "name": "vitus",
-        "priority": 1
-    },
-    {
-        "patterns": ["apotek"],
-        "category": "health & wellbeing",
-        "name": "apotek",
-        "priority": 1
-    },
-    {
-        "patterns": ["brilleland"],
-        "category": "health & wellbeing",
-        "name": "Brilleland",
-        "priority": 1
-    },
-    {
-        "patterns": ["synsam"],
-        "category": "health & wellbeing",
-        "name": "Synsam",
-        "priority": 1
-    },
-    {
-        "patterns": ["joerpeland optik"],
-        "category": "health & wellbeing",
-        "name": "Jørpeland Optik",
-        "priority": 1
-    }
+  {
+    "patterns": ["vitus"],
+    "category": "health & wellbeing",
+    "name": "vitus",
+    "priority": 1
+  },
+  {
+    "patterns": ["apotek"],
+    "category": "health & wellbeing",
+    "name": "apotek",
+    "priority": 1
+  },
+  {
+    "patterns": ["brilleland"],
+    "category": "health & wellbeing",
+    "name": "Brilleland",
+    "priority": 1
+  },
+  {
+    "patterns": ["synsam"],
+    "category": "health & wellbeing",
+    "name": "Synsam",
+    "priority": 1
+  },
+  {
+    "patterns": ["joerpeland optik"],
+    "category": "health & wellbeing",
+    "name": "Jørpeland Optik",
+    "priority": 1
+  }
 ]

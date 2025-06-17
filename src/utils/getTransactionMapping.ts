@@ -12,17 +12,17 @@ import LoanMapping from '../data/loan-mapping.json';
 import { TransactionMap } from '../types/Statements';
 
 export const getTransactionMapping = () => {
-    return <TransactionMap[]>[
-        ...Charging,
-        ...ClothesShoes,
-        ...Groceries,
-        ...HealthAndWellbeing,
-        ...HomeAndGarden,
-        ...PhoneTvInternet,
-        ...Transport,
-        ...CafeRestaurantMapping,
-        ...Entertainment,
-        ...ToolAndParkingMapping,
-        ...LoanMapping
-    ];
-}
+  return <TransactionMap[]>[
+    ...Charging,
+    ...ClothesShoes,
+    ...Groceries,
+    ...HealthAndWellbeing,
+    ...HomeAndGarden,
+    ...PhoneTvInternet,
+    ...Transport,
+    ...CafeRestaurantMapping,
+    ...Entertainment,
+    ...ToolAndParkingMapping,
+    ...LoanMapping,
+  ];
+};

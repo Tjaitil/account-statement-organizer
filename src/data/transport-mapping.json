@@ -1,8 +1,8 @@
 [
-    {
-        "patterns": ["kolumbus"],
-        "category": "transport",
-        "name": "KOLUMBUS",
-        "priority": 1
-    }
+  {
+    "patterns": ["kolumbus"],
+    "category": "transport",
+    "name": "KOLUMBUS",
+    "priority": 1
+  }
 ]

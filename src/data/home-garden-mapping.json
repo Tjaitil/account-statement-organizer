@@ -1,32 +1,32 @@
 [
-    {
-        "patterns": ["jysk"],
-        "category": "home & garden",
-        "name": "jysk",
-        "priority": 1
-    },
-    {
-        "patterns": ["nille"],
-        "category": "home & garden",
-        "name": "nille",
-        "priority": 1
-    },
-    {
-        "patterns": ["nlm gjenbruk"],
-        "category": "home & garden",
-        "name": "nlm gjenbruk",
-        "priority": 1
-    },
-    {
-        "patterns": ["europris"],
-        "category": "home & garden",
-        "name": "europris",
-        "priority": 1
-    },
-    {
-        "patterns": ["normal"],
-        "category": "home & garden",
-        "name": "normal",
-        "priority": 1
-    }
+  {
+    "patterns": ["jysk"],
+    "category": "home & garden",
+    "name": "jysk",
+    "priority": 1
+  },
+  {
+    "patterns": ["nille"],
+    "category": "home & garden",
+    "name": "nille",
+    "priority": 1
+  },
+  {
+    "patterns": ["nlm gjenbruk"],
+    "category": "home & garden",
+    "name": "nlm gjenbruk",
+    "priority": 1
+  },
+  {
+    "patterns": ["europris"],
+    "category": "home & garden",
+    "name": "europris",
+    "priority": 1
+  },
+  {
+    "patterns": ["normal"],
+    "category": "home & garden",
+    "name": "normal",
+    "priority": 1
+  }
 ]

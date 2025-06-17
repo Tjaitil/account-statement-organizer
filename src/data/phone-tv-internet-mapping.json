@@ -1,20 +1,20 @@
 [
-    {
-        "patterns": ["nice"],
-        "category": "phone, tv & internet",
-        "name": "Nice",
-        "priority": 1
-    },
-    {
-        "patterns": ["talkmore"],
-        "category": "phone, tv & internet",
-        "name": "Talkmore",
-        "priority": 1
-    },
-    {
-        "patterns": ["telenor"],
-        "category": "phone, tv & internet",
-        "name": "Telenor",
-        "priority": 1
-    }
+  {
+    "patterns": ["nice"],
+    "category": "phone, tv & internet",
+    "name": "Nice",
+    "priority": 1
+  },
+  {
+    "patterns": ["talkmore"],
+    "category": "phone, tv & internet",
+    "name": "Talkmore",
+    "priority": 1
+  },
+  {
+    "patterns": ["telenor"],
+    "category": "phone, tv & internet",
+    "name": "Telenor",
+    "priority": 1
+  }
 ]

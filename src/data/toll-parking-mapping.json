@@ -1,8 +1,8 @@
 [
-    {
-        "patterns": ["easyPark"],
-        "category": "tolls & parking",
-        "name": "EasyPark",
-        "priority": 1
-    }
+  {
+    "patterns": ["easyPark"],
+    "category": "tolls & parking",
+    "name": "EasyPark",
+    "priority": 1
+  }
 ]

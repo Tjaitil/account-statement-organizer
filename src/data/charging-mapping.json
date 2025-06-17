@@ -1,20 +1,20 @@
 [
-    {
-        "patterns": ["bilkraft"],
-        "category": "charging",
-        "name": "Bilkraft",
-        "priority": 1
-    },
-    {
-        "patterns": ["mer norway"],
-        "category": "charging",
-        "name": "Mer Norway",
-        "priority": 1
-    },
-    {
-        "patterns": ["fortum"],
-        "category": "charging",
-        "name": "Fortum",
-        "priority": 1
-    }
+  {
+    "patterns": ["bilkraft"],
+    "category": "charging",
+    "name": "Bilkraft",
+    "priority": 1
+  },
+  {
+    "patterns": ["mer norway"],
+    "category": "charging",
+    "name": "Mer Norway",
+    "priority": 1
+  },
+  {
+    "patterns": ["fortum"],
+    "category": "charging",
+    "name": "Fortum",
+    "priority": 1
+  }
 ]
