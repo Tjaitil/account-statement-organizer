@@ -1,56 +1,56 @@
 [
-    {
-        "patterns": ["extra"],
-        "category": "groceries",
-        "name": "Extra",
-        "priority": 1
-    },
-    {
-        "patterns": ["kiwi"],
-        "category": "groceries",
-        "name": "KIWI",
-        "priority": 1
-    },
-    {
-        "patterns": ["rema"],
-        "category": "groceries",
-        "name": "Rema",
-        "priority": 1
-    },
-    {
-        "patterns": ["obs"],
-        "category": "groceries",
-        "name": "OBS",
-        "priority": 1
-    },
-    {
-        "patterns": ["meny"],
-        "category": "groceries",
-        "name": "Meny",
-        "priority": 1
-    },
-    {
-        "patterns": ["spar "],
-        "category": "groceries",
-        "name": "Spar",
-        "priority": 1
-    },
-    {
-        "patterns": ["strand gard"],
-        "category": "groceries",
-        "name": "Strand Gård",
-        "priority": 1
-    },
-    {
-        "patterns": ["strand gård"],
-        "category": "groceries",
-        "name": "Strand Gård",
-        "priority": 1
-    },
-    {
-        "patterns": ["asia matbutikk norge"],
-        "category": "groceries",
-        "name": "Asia Matbutikk Jørpeland",
-        "priority": 1
-    }
+  {
+    "patterns": ["extra"],
+    "category": "groceries",
+    "name": "Extra",
+    "priority": 1
+  },
+  {
+    "patterns": ["kiwi"],
+    "category": "groceries",
+    "name": "KIWI",
+    "priority": 1
+  },
+  {
+    "patterns": ["rema"],
+    "category": "groceries",
+    "name": "Rema",
+    "priority": 1
+  },
+  {
+    "patterns": ["obs"],
+    "category": "groceries",
+    "name": "OBS",
+    "priority": 1
+  },
+  {
+    "patterns": ["meny"],
+    "category": "groceries",
+    "name": "Meny",
+    "priority": 1
+  },
+  {
+    "patterns": ["spar "],
+    "category": "groceries",
+    "name": "Spar",
+    "priority": 1
+  },
+  {
+    "patterns": ["strand gard"],
+    "category": "groceries",
+    "name": "Strand Gård",
+    "priority": 1
+  },
+  {
+    "patterns": ["strand gård"],
+    "category": "groceries",
+    "name": "Strand Gård",
+    "priority": 1
+  },
+  {
+    "patterns": ["asia matbutikk norge"],
+    "category": "groceries",
+    "name": "Asia Matbutikk Jørpeland",
+    "priority": 1
+  }
 ]

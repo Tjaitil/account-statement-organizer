@@ -1,20 +1,20 @@
 [
-    {
-        "name": "tonstad bakeri",
-        "category": "restaurants & cafe",
-        "patterns": ["tonstad bakeri", "tonstad bakeri"],
-        "priority": 1
-    },
-    {
-        "name": "JARENBAKEREN",
-        "category": "restaurants & cafe",
-        "patterns": ["jarenbakeren"],
-        "priority": 1
-    },
-    {
-        "name": "burger king",
-        "category": "restaurants & cafe",
-        "patterns": ["burger king"],
-        "priority": 1
-    }
+  {
+    "name": "tonstad bakeri",
+    "category": "restaurants & cafe",
+    "patterns": ["tonstad bakeri", "tonstad bakeri"],
+    "priority": 1
+  },
+  {
+    "name": "JARENBAKEREN",
+    "category": "restaurants & cafe",
+    "patterns": ["jarenbakeren"],
+    "priority": 1
+  },
+  {
+    "name": "burger king",
+    "category": "restaurants & cafe",
+    "patterns": ["burger king"],
+    "priority": 1
+  }
 ]
