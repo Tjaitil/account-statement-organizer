@@ -1,5 +1,5 @@
 <template>
-  <PrimeAccordion value="1">
+  <PrimeAccordion>
     <PresenterCategoryWrapper
       v-for="category in categories"
       :key="category.name"

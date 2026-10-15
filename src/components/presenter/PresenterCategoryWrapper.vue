@@ -1,5 +1,5 @@
 <template>
-  <PrimeAccordionPanel value="1">
+  <PrimeAccordionPanel :value="category.name">
     <PrimeAccordionHeader>
       <PresenterCategory :category="category" />
     </PrimeAccordionHeader>
